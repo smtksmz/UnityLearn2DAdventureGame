@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6689119650797648781}
   - component: {fileID: 1757426019524139106}
   - component: {fileID: 8848584563116988017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,10 +150,27 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
   speed: 3
+  talkAction:
+    m_Name: Talk
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: b1f9a9dc-9317-4b80-8757-a7fbf22d76b8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c3dc259d-4345-40d1-a511-2d520f501e66
+      m_Path: <Keyboard>/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Talk
+      m_Flags: 0
+    m_Flags: 0
   projectilePrefab: {fileID: 975540607185388228, guid: 213c63d1e1cd5d842b8400175d602250, type: 3}
   launchAction:
     m_Name: Launch
-    m_Type: 1
+    m_Type: 0
     m_ExpectedControlType: Button
     m_Id: 848406e6-1839-4bf8-ae0a-3cf1c2ac2133
     m_Processors: 

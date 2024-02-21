@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float enemySpeed;
-    private Rigidbody2D rigidbody2;
-
+    // Public variables
+    public float enemySpeed; 
     public bool vertical;
-
     public float changeTime = 3.0f;
+
+    // Private variables
+    private Rigidbody2D rigidbody2;
     private float timer;
     private int direction = 1;
     private Animator animator;
+    bool aggressive = true;
     private void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
@@ -22,15 +24,27 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (!aggressive)
+        {
+            return;
+        } 
+    }
+    private void FixedUpdate()
+    {
+
+        if (!aggressive)
+        {
+            return;
+        }
+
         timer -= Time.deltaTime;
+
         if (timer < 0)
         {
             direction = -direction;
             timer = changeTime;
         }
-    }
-    private void FixedUpdate()
-    {
+
         Vector2 enemyposition = rigidbody2.position;
 
         if (vertical)
@@ -45,6 +59,7 @@ public class EnemyController : MonoBehaviour
             animator.SetFloat("Move X", direction);
             animator.SetFloat("Move Y", 0);
         }
+
         rigidbody2.MovePosition(enemyposition);
     }
 
@@ -56,5 +71,12 @@ public class EnemyController : MonoBehaviour
         {
             player.ChangeHealth(-1);
         }
+    }
+
+    public void Fix()
+    {
+        aggressive = false;
+        GetComponent<Rigidbody2D>().simulated = false;
+        animator.SetTrigger("Fixed");
     }
 }
