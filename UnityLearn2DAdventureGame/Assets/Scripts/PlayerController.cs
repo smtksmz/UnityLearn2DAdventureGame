@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     // Variables related to animation
     Animator animator;
     Vector2 moveDirection = new Vector2(1, 0);
+
+    AudioSource audioSource;
     private void Start()
     {
         MoveAction.Enable();
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         talkAction.performed += FindFriend;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -112,5 +115,10 @@ public class PlayerController : MonoBehaviour
                 UIHandler.instance.DisplayDialogue();
             }
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

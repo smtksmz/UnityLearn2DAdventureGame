@@ -15,11 +15,14 @@ public class EnemyController : MonoBehaviour
     private int direction = 1;
     private Animator animator;
     bool aggressive = true;
+
+    private AudioSource _audio;
     private void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         timer = changeTime;
+        _audio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -78,5 +81,6 @@ public class EnemyController : MonoBehaviour
         aggressive = false;
         GetComponent<Rigidbody2D>().simulated = false;
         animator.SetTrigger("Fixed");
+        _audio.Stop();
     }
 }
