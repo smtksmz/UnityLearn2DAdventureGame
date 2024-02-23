@@ -144,3 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectedClip: {fileID: 8300000, guid: 173a14cf06354c643b46b235f2a4f974, type: 3}
+  collectibleEffects: {fileID: 3205207912056482104, guid: 70d855d9e83e68848b9a89104c45d821, type: 3}

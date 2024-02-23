@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     bool aggressive = true;
 
     private AudioSource _audio;
+    public ParticleSystem smokeEffect;
     private void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
@@ -82,5 +83,6 @@ public class EnemyController : MonoBehaviour
         GetComponent<Rigidbody2D>().simulated = false;
         animator.SetTrigger("Fixed");
         _audio.Stop();
+        smokeEffect.Stop();
     }
 }
