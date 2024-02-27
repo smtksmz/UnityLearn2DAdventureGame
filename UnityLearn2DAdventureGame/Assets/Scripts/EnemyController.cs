@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class EnemyController : MonoBehaviour
 
     private AudioSource _audio;
     public ParticleSystem smokeEffect;
+    private SceneManager victory; 
     private void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
